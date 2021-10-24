@@ -1,8 +1,139 @@
 @import 'mixins'
 
+.types
+	padding-top: 108px
+	&-list
+		display: grid
+		grid-template-columns: repeat(auto-fit, minmax(350px, 1fr))
+		gap: 30px
+		margin-top: 56px
+		&-item
+			display: flex
+			flex-direction: column
+			background-color: var(--background-color)
+			border-radius: var(--block-radius)
+			box-shadow: 2px 4px 20px rgba(1, 124, 69, 0.15)
+			overflow: hidden
+			&-title
+				text-align: center
+				padding: 50px 30px 39px
+			&-options
+				display: flex
+				align-items: center
+				align-content: center
+				justify-content: space-between
+				background-color: #365F7A
+				&.darken
+					background-color: #5D5E6F
+			&-price
+				padding: 35px 27px
+				line-height: 1
+				font-size: var(--h5-font-size)
+				line-height: var(--h5-line-height)
+				color: var(--text-color-revert)
+			&-button
+				display: flex
+				align-items: center
+				align-content: center
+				justify-content: center
+				padding: 27px 41px
+				background-color: var(--button-background-color)
+				appearance: none
+				border: none
+				cursor: pointer
+				transition: background-color .3s ease-in-out
+				&:hover 
+					background-color: var(--button-background-color-hover)
+				&.darken 
+					background-color: #226561
+					&:hover 
+						background-color: darken(#226561, 10%)
+
+.process
+	padding-top: 160px
+	&-info
+		display: flex
+		align-items: center
+		align-content: center
+		justify-content: center
+	&-logo
+		flex: 0 0 49.3%
+		padding: 0 30px 0 0
+	&-description
+		--p-font-size: 20px
+		--p-line-height: 1.5
+		flex: 0 0 50.7%
+	&-line
+		display: grid
+		grid-template-columns: repeat(4, 1fr)
+		gap: 30px
+		margin-top: 76px
+		@include md 
+			grid-template-columns: repeat(2, 1fr)
+			gap: 53px
+		@include xs 
+			grid-template-columns: repeat(1, 1fr)
+		&-item
+			display: flex
+			flex-direction: column
+			align-content: center
+			align-items: center
+			justify-content: flex-start
+			background-color: var(--background-color)
+			border-radius: var(--block-radius)
+			box-shadow: var(--block-shadow)
+			padding: 53px 22px 30px
+			counter-increment: number
+			position: relative
+			&:before
+				content: counter(number)
+				display: flex
+				align-items: center
+				align-content: center
+				justify-content: center
+				width: 46px
+				height: 46px
+				border-radius: 46px
+				background-color: var(--accent-color)
+				color: var(--text-color-revert)
+				font-size: var(--h5-font-size)
+				line-height: var(--h5-line-height)
+				font-weight: 400
+				box-shadow: var(--block-shadow)
+				position: absolute
+				top: 0
+				left: 50%
+				transform: translate(-50%, -50%)
+			&-title 
+				text-align: center
+				margin-top: 25px
+
 .calculator
+	padding-top: 196px
+
 	.wrapper
 		width: 100%
 		max-width: 1440px
 		background: linear-gradient(180deg, #017C45 0%, #005932 100%)
 		border-radius: var(--block-radius)
+		margin: 0 auto
+		position: relative
+		&:before
+			content: ''
+			display: block
+			width: 100%
+			height: 94px
+			background-image: url('../assets/forest.svg')
+			background-size: 866px 94px
+			background-position: center
+			background-repeat: no-repeat
+			position: absolute
+			top: -94px
+			left: 0
+
+.contacts
+	padding-top: 100px
+
+.footer
+	margin-top: 87px
+	padding: 30px 0
