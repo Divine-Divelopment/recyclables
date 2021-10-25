@@ -267,8 +267,8 @@
 				</div>
 			</div>
 			<div class="calculator">
-				<div class="wrapper">
-					<div class="content">
+				<div class="calculator-wrapper">
+					<div class="calculator-content">
 						<div class="calculator-info">
 							<h2 class="calculator-title">
 								Рассчитайте прибыль на калькуляторе вторсырья
@@ -276,31 +276,31 @@
 							<p class="calculator-description">
 								После рассчета оставьте заявку и наш специалист свяжется с Вами для уточнения деталей.
 							</p>
-							<img width="388" height="347" src="./assets/earth.svg" alt="Рассчитайте прибыль на калькуляторе вторсырья">
+							<img class="calculator-image" width="388" height="347" src="./assets/earth.svg" alt="Рассчитайте прибыль на калькуляторе вторсырья">
 						</div>
-						<form class="calculator-form">
-							<fieldset class="top-block">
-								<select id="material" name="material">
-									<option data-name="МАКУЛАТУРА" value="4000">Макулатура</option>
-									<option data-name="ПЛАСТИК" value="4000">Пластик</option>
-									<option data-name="СТРЕЙЧ ПЛЕНКА" value="4000">Стрейч пленка</option>
-									<option data-name="КАРТОН"value="4000">Картон</option>
-									<option data-name="ПНД" value="">ПНД</option>
-									<option data-name="ФИСНАЯ БУМАГА" value="4000">Офисная бумага</option>
-									<option data-name="ПВД ПРОЗРАЧНОЕ" value="4000">ПВД прозрачное</option>
-									<option data-name="ПОЛИПРОПИЛЕН" value="4000">Полипропилен</option>
-									<option data-name="ОТХОДЫ ТИПОГРАФИИ" value="4000">Отходы типографии</option>
-									<option data-name="ПВД ЦВЕТНОЕ" value="4000">ПВД цветное</option>
-									<option data-name="ПЭТ БУТЫЛКА" value="4000">ПЭТ бутылка</option>
-								</select>
-								<div class="weight-block">
-									<label for="weight">УКАЖИТЕ ВЕС:</label>
-									<input id="weight" type="text" onchange="myFunction(this)">
-									<input id="weight-range" type="range" min="0" max="100000" onchange="myFunction2(this)">
-								</div>
-							</fieldset>
-							
-
+						<div class="calculator-form">
+							<form>
+								<fieldset class="top-block">
+									<select id="material" name="material">
+										<option data-name="МАКУЛАТУРА" value="4000">Макулатура</option>
+										<option data-name="ПЛАСТИК" value="4000">Пластик</option>
+										<option data-name="СТРЕЙЧ ПЛЕНКА" value="4000">Стрейч пленка</option>
+										<option data-name="КАРТОН"value="4000">Картон</option>
+										<option data-name="ПНД" value="">ПНД</option>
+										<option data-name="ФИСНАЯ БУМАГА" value="4000">Офисная бумага</option>
+										<option data-name="ПВД ПРОЗРАЧНОЕ" value="4000">ПВД прозрачное</option>
+										<option data-name="ПОЛИПРОПИЛЕН" value="4000">Полипропилен</option>
+										<option data-name="ОТХОДЫ ТИПОГРАФИИ" value="4000">Отходы типографии</option>
+										<option data-name="ПВД ЦВЕТНОЕ" value="4000">ПВД цветное</option>
+										<option data-name="ПЭТ БУТЫЛКА" value="4000">ПЭТ бутылка</option>
+									</select>
+									<div class="weight-block">
+										<label for="weight">УКАЖИТЕ ВЕС:</label>
+										<input id="weight" type="text" onchange="myFunction(this)">
+										<input id="weight-range" type="range" min="0" max="100000" onchange="myFunction2(this)">
+									</div>
+								</fieldset>
+							</form>
 						</div>
 					</div>
 				</div>
@@ -352,13 +352,16 @@
 		</main>
 		<footer class="footer">
 			<div class="container">
-				<a href="/" class="footer-logo">
-					<img width="382" height="79" src="./assets/logo.svg" alt="Вторлайн">
-				</a>
-				<a href="tel:+79178639629" class="button secondary small phone">+7 (917) 863-96-29</a>
-				<div class="copyright">
+				<div class="footer-top">
+					<a href="/" class="footer-logo">
+						<img width="382" height="79" src="./assets/logo.svg" alt="Вторлайн">
+					</a>
+					<a href="tel:+79178639629" class="button secondary small phone">+7 (917) 863-96-29</a>
+				</div>
+				
+				<div class="footer-copyright">
 					<a href="/privacy" class="footer-link">Политика конфиденциальности</a>
-					<p class="develop">Сайт разработан: <a href="http://monkeygarden.ru" target="_blank" class="footer-link">MonkeyGarden</a></p>
+					<p class="footer-develop">Сайт разработан: <a href="http://monkeygarden.ru" target="_blank" class="footer-link">MonkeyGarden</a></p>
 				</div>
 			</div>
 		</footer>	
