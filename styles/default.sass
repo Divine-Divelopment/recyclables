@@ -106,13 +106,19 @@ body, html
 	font-family: var(--text-font)
 	position: relative
 	scroll-behavior: smooth
+	width: 100%
+	overflow-x: hidden
 	&.no-scroll
 		height: 100vh
 		overflow: hidden
 body
+	position: relative
 	background: linear-gradient(180deg, rgba(10, 133, 211, 0.1) 0%, rgba(231, 246, 255, 0.1) 22.92%, rgba(10, 133, 211, 0.1) 50.8%, rgba(231, 246, 255, 0.028) 82.93%, rgba(10, 133, 211, 0.1) 100%)
-
 section
+	position: relative
+	overflow: hidden
+	z-index: 1
+	width: 100%
 	overflow: hidden
 
 ul, ol
@@ -123,6 +129,8 @@ ul, ol
 	max-width: 1230px
 	margin: 0 auto
 	padding: 0 15px
+	@include sm
+		padding: 0 22px
 
 .button
 	display: inline-flex
@@ -152,30 +160,296 @@ ul, ol
 		line-height: .91
 		width: max-content
 		min-height: 60px
+	&.centered
+		margin: 0 auto
 	&:hover
 		background-color: var(--button-background-color-hover)
+	@include sm 
+		padding: 19px 15px
+		width: 276px
+		max-width: 100%
+		min-height: 68px
+		font-size: 18px
 
-// @include md 
-// 	\:root
-// 		--h1-font-size: 48px
-// 		--h2-font-size: 30px
-// 		--h3-font-size: 30px
-// 		--h4-font-size: 18px
-// 		--h5-font-size: 20px
-// 		--h6-font-size: 18px
-// 		--p-font-size: 16px
-// 		--small-font-size: 14px
-// 		--smaller-font-size: 12px
-// 		--smallest-font-size: 12px	
-// @include sm
-// 	\:root
-// 		--h1-font-size: 32px
-// 		--h2-font-size: 24px
-// 		--h3-font-size: 24px
-// 		--h4-font-size: 24px
-// 		--h5-font-size: 16px
-// 		--h6-font-size: 14px
-// 		--p-font-size: 14px
-// 		--small-font-size: 12px
-// 		--smaller-font-size: 10px
-// 		--smallest-font-size: 10px	
+input[type=range] 
+	width: 100%
+	margin: 17px 0
+	background-color: transparent
+	-webkit-appearance: none
+	&:focus 
+		outline: none
+	&::-webkit-slider-runnable-track 
+		background: #a8a8a8
+		border: none
+		border: 0
+		width: 100%
+		height: 4px
+		border-radius: 4px
+		cursor: pointer
+	&::-webkit-slider-thumb 
+		margin-top: -17px
+		width: 38px
+		height: 38px
+		background: #017c45
+		border: 8px solid #ffffff
+		box-shadow: 0px 0px 10px rgba(1, 124, 69, 0.2)
+		border-radius: 38px
+		cursor: pointer
+		-webkit-appearance: none
+	&:focus::-webkit-slider-runnable-track 
+		background: #a8a8a8
+	&::-moz-range-track 
+		background: #a8a8a8
+		border: none
+		border: 0
+		width: 100%
+		height: 4px
+		border-radius: 4px
+		cursor: pointer
+	&::-moz-range-thumb 
+		width: 38px
+		height: 38px
+		background: #017c45
+		border: 8px solid #ffffff
+		box-shadow: 0px 0px 10px rgba(1, 124, 69, 0.2)
+		border-radius: 38px
+		cursor: pointer
+	&::-ms-track 
+		background: transparent
+		border-color: transparent
+		border-width: 17.5px 0
+		color: transparent
+		width: 100%
+		height: 4px
+		border-radius: 4px
+		cursor: pointer
+	&::-ms-fill-lower 
+		background: #a8a8a8
+		border: none
+		border: 0
+	&::-ms-fill-upper 
+		background: #a8a8a8
+		border: none
+		border: 0
+	&::-ms-thumb 
+		width: 38px
+		height: 38px
+		background: #017c45
+		border: 8px solid #ffffff
+		box-shadow: 0px 0px 10px rgba(1, 124, 69, 0.2)
+		border-radius: 38px
+		cursor: pointer
+		margin-top: 0px
+	&:focus::-ms-fill-lower 
+		background: #a8a8a8
+	&:focus::-ms-fill-upper 
+		background: #a8a8a8
+@supports (-ms-ime-align:auto) 
+	input[type=range] 
+		margin: 0
+
+.modal 
+	position: fixed
+	width: 100vw
+	height: 100vh
+	opacity: 0
+	visibility: hidden
+	transition: all 0.3s ease
+	top: 0
+	left: 0
+	display: flex
+	align-items: center
+	justify-content: center
+	padding: 10px
+	z-index: 999
+	overflow: hidden
+	&-bg
+		width: 100%
+		height: 100%
+		background: rgba(0, 0, 0, .4)
+		position: absolute
+		top: 0
+		right: 0
+		bottom: 0
+		left: 0
+	&-close
+		appearance: none
+		background: transparent
+		position: absolute
+		top: 30px
+		right: 30px
+		border: none
+		box-shadow: none
+		cursor: pointer
+	&-form
+		margin-top: 39px
+		@include sm
+			margin-top: 23px
+	&-content-title
+		line-height: 1.39
+		@include sm
+			width: 100%
+			text-align: center
+	&-container
+		max-width: 700px
+		background: #FFFFFF
+		box-shadow: 2px 4px 20px rgba(1, 124, 69, 0.1)
+		border-radius: var(--block-radius)
+		z-index: 1000
+		position: relative
+		padding: 60px 75px
+		max-height: 100%
+		overflow-y: auto
+		@include sm
+			padding: 70px 20px 29px
+		fieldset 
+			border: none
+			.privacy
+				display: inline-block
+				margin-top: 20px
+				font-size: 13px
+				line-height: 1.54
+				color: rgba(0, 0, 0, .4)
+				@include sm
+					font-size: 10px
+					text-align: center
+					margin-top: 15px
+		.form-input
+			width: 100%
+			height: 80px
+			border-radius: var(--block-radius)
+			border: none
+			background: #F1F1F1
+			text-align: left
+			font-family: var(--text-font)
+			font-style: normal
+			font-weight: normal
+			font-size: 18px
+			color: #000000
+			font-weight: 400
+			margin-bottom: 20px
+			padding: 0 31px
+			@include sm
+				width: 100%
+				height: 50px
+				border-radius: 10px
+				padding: 0 19px
+		.button
+			margin-top: 20px
+			@include sm
+				margin-top: 0
+				width: 100%
+
+.modal.open 
+	visibility: visible
+	opacity: 1
+	transition-delay: 0s
+
+	
+.cloud
+	position: absolute
+	width: 363px
+	height: 178px
+	@include sm
+		width: 177px
+		height: 87px
+	img
+		width: 100%
+		height: auto
+	&-one
+		top: 174px
+		right: -236px
+		@include md
+			top: 174px
+			right: -150px
+		@include sm 
+			top: 98px
+			right: 0
+			margin-right: -85px
+	&-two
+		top: 696px
+		left: -53px	
+		@include sm 
+			top: 291px
+			left: 0
+			margin-left: -40px
+	&-three
+		top: 2287px
+		right: -227px
+		@include sm 
+			top: 291px
+			right: 0
+			margin-right: -125px
+	&-four
+		top: 2318px
+		left: 137px
+		@include md
+			display: none
+	&-five
+		top: 2547px
+		right: -97px
+		@include md
+			display: none
+	&-six
+		top: 4175px
+		right: -78px
+		@include md
+			display: none
+
+.cloudlet
+	position: absolute
+	width: 160px
+	height: 78px
+	@include sm
+		width: 79px
+		height: 39px
+	img
+		width: 100%
+		height: auto
+	&-one
+		top: 297px
+		left: 675px
+		@include md
+			top: 55px
+			left: 400px
+		@include sm
+			left: 50%
+			margin-left: -39px
+	&-two
+		top: 2283px
+		right: 238px
+		@include md 
+			top: 300px
+			left: -90px
+		@include sm 
+			top: 87px
+			left: 0
+			margin-left: -39px
+	&-three
+		top: 2408px
+		left: 671px
+		@include md
+			display: none
+	&-four
+		top: 4159px
+		left: 233px
+		@include md
+			display: none
+
+.scroll
+	@include md 
+		transform: none !important
+
+@include sm
+	\:root
+		--h1-font-size: 30px
+		--h2-font-size: 26px
+		--h3-font-size: 24px
+		--h4-font-size: 20px
+		--h5-font-size: 20px
+		--h6-font-size: 16px
+		--big-font-size: 16px
+		--p-font-size: 16px
+		--small-font-size: 14px
+		--smaller-font-size: 12px
+		--smallest-font-size: 12px	

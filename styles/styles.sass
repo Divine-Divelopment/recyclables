@@ -1,12 +1,22 @@
 @import 'mixins'
 
 .types
-	padding-top: 108px
+	padding-top: 58px
+	@include sm
+		padding-top: 0
+	&-title
+		@include sm
+			width: 100%
+			text-align: center
 	&-list
-		display: grid
-		grid-template-columns: repeat(auto-fit, minmax(350px, 1fr))
-		gap: 30px
+		display: block
+		column-count: 3
+		column-gap: 30px
 		margin-top: 56px
+		@include md 
+			column-count: 2
+		@include sm 
+			column-count: 1
 		&-item
 			display: flex
 			flex-direction: column
@@ -14,9 +24,16 @@
 			border-radius: var(--block-radius)
 			box-shadow: 2px 4px 20px rgba(1, 124, 69, 0.15)
 			overflow: hidden
+			margin-bottom: 30px
+			@include sm
+				margin-bottom: 20px
 			&-title
 				text-align: center
 				padding: 50px 30px 39px
+				@include xl
+					padding: 50px 5px 39px
+				@include sm
+					padding: 37px 20px 29px
 			&-options
 				display: flex
 				align-items: center
@@ -31,6 +48,11 @@
 				font-size: var(--h5-font-size)
 				line-height: var(--h5-line-height)
 				color: var(--text-color-invert)
+				@include xl
+					padding: 35px 20px
+				@include sm
+					--h5-font-size: 18px
+					padding: 25px 25px 21px
 			&-button
 				display: flex
 				align-items: center
@@ -48,30 +70,56 @@
 					background-color: #226561
 					&:hover 
 						background-color: darken(#226561, 10%)
+				@include sm
+					padding: 20px 30px
+					img
+						width: 24px
+						height: auto
 
 .process
-	padding-top: 160px
+	padding-top: 133px
+	@include md
+		padding-top: 80px
+	@include sm
+		padding-top: 60px
 	&-info
 		display: flex
 		align-items: center
 		align-content: center
 		justify-content: center
+		@include md
+			flex-direction: column
 	&-logo
 		flex: 0 0 49.3%
 		padding: 0 30px 0 0
+		img
+			max-width: 100%
+			height: auto
+		@include md
+			flex: 0 0 auto
+			padding-left: 0
 	&-description
 		--p-font-size: 20px
 		--p-line-height: 1.5
 		flex: 0 0 50.7%
+		@include md
+			flex: 0 0 auto
+			padding-top: 21px
+		@include sm
+			p
+				--p-font-size: 14px
+				text-align: center
 	&-line
 		display: grid
 		grid-template-columns: repeat(4, 1fr)
 		gap: 30px
 		margin-top: 76px
+		padding-bottom: 20px
 		@include md 
 			grid-template-columns: repeat(2, 1fr)
 			gap: 53px
-		@include xs 
+		@include sm
+			margin-top: 53px
 			grid-template-columns: repeat(1, 1fr)
 		&-item
 			display: flex
@@ -107,9 +155,11 @@
 			&-title 
 				text-align: center
 				margin-top: 25px
+				@include sm
+					font-weight: 500
 
 .calculator
-	padding-top: 196px
+	padding-top: 176px
 
 	&-wrapper
 		width: 100%
@@ -117,8 +167,13 @@
 		background: linear-gradient(180deg, #017C45 0%, #005932 100%)
 		border-radius: var(--block-radius)
 		margin: 0 auto
-		padding: 66px 0 38px
+		padding: 66px 0 44px
 		position: relative
+		@media screen and (max-width: 1440px)
+			border-radius: 0
+		@include sm 
+			padding-top: 60px
+			padding-bottom: 92px
 		&:before
 			content: ''
 			display: block
@@ -131,6 +186,10 @@
 			position: absolute
 			top: -94px
 			left: 0
+			@include sm
+				background-size: 551px 60px
+				top: -60px
+				height: 60px
 	&-content
 		width: 100%
 		max-width: 1110px
@@ -138,6 +197,22 @@
 		margin: 0 auto
 		gap: 6%
 		grid-template-columns: 49% 45%
+		@include xl
+			padding: 0 15px
+		@include md
+			gap: 30px
+			grid-template-columns: 1fr
+		@include sm
+			padding: 0 22px
+	&-outer
+		display: flex
+		align-items: center
+		align-content: center
+		justify-content: space-between
+		@include sm
+			text-align: center
+			flex-direction: column
+			align-items: stretch
 	&-info
 		--text-color: var(--text-color-invert)
 	&-form
@@ -146,35 +221,151 @@
 		align-items: center
 		align-content: center
 		justify-content: center
+		form
+			width: 100%	
+			background-color: var(--background-color)
+			border-radius: var(--block-radius)
+			border: none
+			font-family: var(--text-fontx)
+		fieldset
+			margin: 0
+			border: none
+	&-label
+		font-size: 18px
+		line-height: 1.33
+		color: #000000
+		text-transform: uppercase
+		font-weight: 500
+		margin-right: auto
+		@include sm
+			text-align: center
+			width: 100%
+	&-fields
+		background-color: var(--background-color)
+		border-radius: var(--block-radius)
+		box-shadow: 2px 4px 20px rgba(1, 124, 69, 0.1)
+		padding: 50px 30px
+		@include sm
+			padding: 30px 20px
+		select 
+			width: 100%
+			appearance: none
+		.weight
+			width: 230px
+			height: 80px
+			border-radius: var(--block-radius)
+			border: none
+			background: #F1F1F1
+			text-align: center
+			font-family: var(--text-font)
+			font-style: normal
+			font-weight: normal
+			font-size: 18px
+			color: #000000
+			font-weight: 500
+			@include sm
+				width: 100%
+				height: 50px
+				border-radius: 10px
+				margin-top: 13px
+		.range
+			margin-top: 12px
+			@include md
+				display: none
+	&-weight
+		margin-top: 20px
+	&-result
+		display: flex
+		flex-direction: column
+		align-items: center
+		padding: 50px 30px 40px
+		.button
+			margin-top: 45px
+			@include sm
+				margin-top: 20px
+				width: 236px
+		@include sm
+			padding: 30px 20px
 	&-title
 		margin-top: 30px
+		@include md
+			margin: 0
+		@include sm
+			--h2-font-size: 24px
+			width: 100%
+			text-align: center
 	&-description
 		--p-font-weight: 300
 		margin-top: 20px
+		@include sm
+			--p-font-size: 14px
+			width: 100%
+			text-align: center
 	&-image
 		margin-top: 50px
+		@include md
+			display: none
+	&-output
+		width: 100%
+		text-align: left
+		font-size: 18px
+		line-height: 1.33
+		color: #000000
+		text-transform: uppercase
+		font-weight: 500
+		@include sm
+			display: flex
+			flex-direction: column
+			align-items: center
+			align-content: center
+			justify-content: center
+		output
+			font-size: 36px
+			line-height: 24px
+			margin-left: 30px
+			@include sm
+				margin-left: 0
+				margin-top: 15px
 
 .contacts
 	padding-top: 100px
+	@include md 
+		padding-top: 50px
+	@include sm
+		padding-top: 30px
+	&-title
+		@include sm
+			width: 100%
+			text-align: center
 	&-list
-		margin-top: 30px
+		margin-top: 38px
 		display: grid
 		grid-template-columns: repeat(4, 1fr)
 		gap: 20px
+		padding-bottom: 20px
 		@include md 
 			grid-template-columns: repeat(2, 1fr)
-		@include xs
+		@include sm
 			grid-template-columns: repeat(1, 1fr)
 		&-item
 			background-color: var(--background-color)
 			border-radius: var(--block-radius)
 			box-shadow: var(--block-shadow)
 			padding: 34px 25px 31px 30px
+			@include sm
+				padding: 34px 22px 31px
 			&-title
 				--h5-font-weight: 500
+				@include sm
+					width: 100%
+					text-align: center
+
 			&-address
 				--p-line-height: 1.67
 				margin-top: 10px
+				@include sm
+					width: 100%
+					text-align: center
 			&-phone
 				display: block
 				font-size: var(--h5-font-size)
@@ -183,22 +374,42 @@
 				color: var(--text-color)
 				text-decoration: none
 				margin-top: 15px
+				@include sm
+					width: 100%
+					text-align: center
 				& ~ a 
 					margin-top: 0
 
 .footer
-	margin-top: 87px
+	margin-top: 49px
 	padding: 30px 0
+	position: relative
+	z-index: 1
+	@include sm
+		margin-top: 0
+	&-logo
+		img 
+			max-width: 100%
+			height: auto
+		@include sm
+			max-width: 230px
 	&-top,
 	&-copyright
 		display: flex
 		align-items: center
 		align-content: center
 		justify-content: space-between
+		@include md 
+			flex-direction: column
 		.button
 			min-width: 285px
+			@include md 
+				margin-top: 30px
+			@include sm
+				margin-top: 15px
+				font-style: 20px
 	&-copyright
-		margin-top: 36px
+		margin-top: 24px
 	&-link
 		@include has-transition(color)
 		font-size: var(--p-font-size)
@@ -206,3 +417,59 @@
 		color: var(--text-color)
 		&:hover 
 			color: var(--accent-color)
+	&-develop
+		@include md 
+			margin-top: 17px
+		@include sm
+			display: flex
+			flex-direction: column
+			align-items: center
+			align-content: center
+			justify-content: center
+			line-height: 1.67
+
+.select2-container--default .select2-selection--single
+	background-color: #F1F1F1
+	border-radius: var(--block-radius)
+	border: none
+	height: 80px
+	@include sm
+		height: 50px
+		border-radius: 10px
+.select2-container--default .select2-selection--single .select2-selection__rendered 
+	padding: 30px 81px 30px 30px
+	font-size: 18px
+	@include sm
+		padding: 14px 34px 12px 19px
+		font-size: 14px
+.select2-container--default .select2-selection--single .select2-selection__arrow
+		top: 30px
+		right: 30px
+		@include sm
+			top: 15px
+			right: 10px
+.select2-container--default .select2-selection--single .select2-selection__arrow b
+	border-color: #017A44 transparent transparent transparent
+	border-width: 20px 10px 0 10px
+	margin: 0
+	transform: translate(-50%, -50%)
+	@include sm
+		border-width: 10px 5.5px 0 5.5px
+.select2-container--default.select2-container--open .select2-selection--single .select2-selection__arrow b
+	border-color: transparent transparent #017A44 transparent
+	border-width: 0 10px 20px 10px
+	@include sm
+		border-width: 0 5.5px 10px 5.5px
+.select2-dropdown
+	background-color: #F1F1F1
+	border-radius: var(--block-radius)
+	overflow-x: hidden
+	border: none
+	@include sm
+		border-radius: 10px
+.select2-container--default .select2-results__option--highlighted.select2-results__option--selectable
+	background-color: #017A44
+.select2-results__option
+	padding: 10px 30px
+	@include sm
+	padding: 8px 19px

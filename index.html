@@ -9,6 +9,7 @@
 			<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
 			<link rel="stylesheet" href="./styles/default.css" />
 			<link rel="stylesheet" href="./styles/first-paint.css" />
+			<link rel="stylesheet" href="./styles/select2.min.css" />
 			<link rel="stylesheet" href="./styles/styles.css" /> 
 	</head>
 	<body>
@@ -25,7 +26,7 @@
 			<div class="top-block">
 				<div class="container hero">
 					<div class="hero-text">
-						<h1 class="tero-title">
+						<h1 class="hero-title">
 							Заготавливаем <br/> и перерабатываем вторсырьё
 						</h1>
 						<p class="hero-description">
@@ -59,13 +60,14 @@
 						<p class="advantages-description">Наши специлисты сами отсортируют и погрузят</p>
 					</div>
 				</div>
-			</div>
-			<div class="types">
+			</section>
+			<section class="types">
 				<div class="container">
 					<h2 class="types-title">
 						Виды перерабатываемого сырья
 					</h2>
 					<div class="types-list">
+
 						<div class="types-list-item">
 							<h4 class="types-list-item-title">
 								МАКУЛАТУРА
@@ -81,7 +83,86 @@
 						</div>
 						<div class="types-list-item">
 							<h4 class="types-list-item-title">
+								КАРТОН
+							</h4>
+							<div class="types-list-item-options darken">
+								<div class="types-list-item-price">
+									4000Р / тонна
+								</div>
+								<button class="types-list-item-button darken">
+									<img width="32" height="40px" src="./assets/calculator.svg">
+								</button>
+							</div>
+						</div>
+						<div class="types-list-item">
+							<h4 class="types-list-item-title">
+								ОФИСНАЯ БУМАГА
+							</h4>
+							<div class="types-list-item-options darken">
+								<div class="types-list-item-price">
+									4000Р / тонна
+								</div>
+								<button class="types-list-item-button darken">
+									<img width="32" height="40px" src="./assets/calculator.svg">
+								</button>
+							</div>
+						</div>
+						<div class="types-list-item">
+							<h4 class="types-list-item-title">
+								ОТХОДЫ ТИПОГРАФИИ
+							</h4>
+							<div class="types-list-item-options darken">
+								<div class="types-list-item-price">
+									4000Р / тонна
+								</div>
+								<button class="types-list-item-button darken">
+									<img width="32" height="40px" src="./assets/calculator.svg">
+								</button>
+							</div>
+						</div>
+
+						<div class="types-list-item">
+							<h4 class="types-list-item-title">
 								ПЛАСТИК
+							</h4>
+							<div class="types-list-item-options">
+								<div class="types-list-item-price">
+									4000Р / тонна
+								</div>
+								<button class="types-list-item-button">
+									<img width="32" height="40px" src="./assets/calculator.svg">
+								</button>
+							</div>
+						</div>
+						<div class="types-list-item">
+							<h4 class="types-list-item-title">
+								ПНД
+							</h4>
+							<div class="types-list-item-options">
+								<div class="types-list-item-price">
+									4000Р / тонна
+								</div>
+								<button class="types-list-item-button">
+									<img width="32" height="40px" src="./assets/calculator.svg">
+								</button>
+							</div>
+						</div>
+						<div class="types-list-item">
+							<h4 class="types-list-item-title">
+								ПВД ПРОЗРАЧНОЕ
+							</h4>
+							<div class="types-list-item-options">
+								<div class="types-list-item-price">
+									4000Р / тонна
+								</div>
+								<button class="types-list-item-button">
+									<img width="32" height="40px" src="./assets/calculator.svg">
+								</button>
+							</div>
+						</div>
+						<div class="types-list-item">
+							<h4 class="types-list-item-title">
+								ПВД ЦВЕТНОЕ
 							</h4>
 							<div class="types-list-item-options">
 								<div class="types-list-item-price">
@@ -107,59 +188,7 @@
 						</div>
 						<div class="types-list-item">
 							<h4 class="types-list-item-title">
-								КАРТОН
-							</h4>
-							<div class="types-list-item-options darken">
-								<div class="types-list-item-price">
-									4000Р / тонна
-								</div>
-								<button class="types-list-item-button darken">
-									<img width="32" height="40px" src="./assets/calculator.svg">
-								</button>
-							</div>
-						</div>
-						<div class="types-list-item">
-							<h4 class="types-list-item-title">
-								ПНД
-							</h4>
-							<div class="types-list-item-options">
-								<div class="types-list-item-price">
-									4000Р / тонна
-								</div>
-								<button class="types-list-item-button">
-									<img width="32" height="40px" src="./assets/calculator.svg">
-								</button>
-							</div>
-						</div>
-						<div class="types-list-item">
-							<h4 class="types-list-item-title">
 								ЯЩИКИ ПП
-							</h4>
-							<div class="types-list-item-options">
-								<div class="types-list-item-price">
-									4000Р / тонна
-								</div>
-								<button class="types-list-item-button">
-									<img width="32" height="40px" src="./assets/calculator.svg">
-								</button>
-							</div>
-						</div>
-						<div class="types-list-item">
-							<h4 class="types-list-item-title">
-								ОФИСНАЯ БУМАГА
-							</h4>
-							<div class="types-list-item-options darken">
-								<div class="types-list-item-price">
-									4000Р / тонна
-								</div>
-								<button class="types-list-item-button darken">
-									<img width="32" height="40px" src="./assets/calculator.svg">
-								</button>
-							</div>
-						</div>
-						<div class="types-list-item">
-							<h4 class="types-list-item-title">
-								ПВД ПРОЗРАЧНОЕ
 							</h4>
 							<div class="types-list-item-options">
 								<div class="types-list-item-price">
@@ -185,32 +214,6 @@
 						</div>
 						<div class="types-list-item">
 							<h4 class="types-list-item-title">
-								ОТХОДЫ ТИПОГРАФИИ
-							</h4>
-							<div class="types-list-item-options darken">
-								<div class="types-list-item-price">
-									4000Р / тонна
-								</div>
-								<button class="types-list-item-button darken">
-									<img width="32" height="40px" src="./assets/calculator.svg">
-								</button>
-							</div>
-						</div>
-						<div class="types-list-item">
-							<h4 class="types-list-item-title">
-								ПВД ЦВЕТНОЕ
-							</h4>
-							<div class="types-list-item-options">
-								<div class="types-list-item-price">
-									4000Р / тонна
-								</div>
-								<button class="types-list-item-button">
-									<img width="32" height="40px" src="./assets/calculator.svg">
-								</button>
-							</div>
-						</div>
-						<div class="types-list-item">
-							<h4 class="types-list-item-title">
 								ПЭТ БУТЫЛКА
 							</h4>
 							<div class="types-list-item-options">
@@ -224,8 +227,8 @@
 						</div>
 					</div>
 				</div>
-			</div>
-			<div class="process">
+			</section>
+			<section class="process">
 				<div class="container">
 					<div class="process-info">
 						<div class="process-logo">
@@ -265,8 +268,8 @@
 						</div>
 					</div>
 				</div>
-			</div>
-			<div class="calculator">
+			</section>
+			<section class="calculator">
 				<div class="calculator-wrapper">
 					<div class="calculator-content">
 						<div class="calculator-info">
@@ -280,8 +283,9 @@
 						</div>
 						<div class="calculator-form">
 							<form>
-								<fieldset class="top-block">
-									<select id="material" name="material">
+								<fieldset class="calculator-fields">
+									<select class="custom-select" id="material" name="material">
+										<option value="0">Выберите тип вторсырья</option>
 										<option data-name="МАКУЛАТУРА" value="4000">Макулатура</option>
 										<option data-name="ПЛАСТИК" value="4000">Пластик</option>
 										<option data-name="СТРЕЙЧ ПЛЕНКА" value="4000">Стрейч пленка</option>
@@ -294,18 +298,29 @@
 										<option data-name="ПВД ЦВЕТНОЕ" value="4000">ПВД цветное</option>
 										<option data-name="ПЭТ БУТЫЛКА" value="4000">ПЭТ бутылка</option>
 									</select>
-									<div class="weight-block">
-										<label for="weight">УКАЖИТЕ ВЕС:</label>
-										<input id="weight" type="text" onchange="myFunction(this)">
-										<input id="weight-range" type="range" min="0" max="100000" onchange="myFunction2(this)">
+									<div class="calculator-weight">
+										<div class="calculator-outer">
+											<label class="calculator-label" for="weight">УКАЖИТЕ ВЕС:</label>
+											<input class="weight" id="weight" type="text" value="10 000 кг" onchange="myFunction(this)">
+										</div>
+										<div class="range">
+											<input id="weight-range" type="range" min="0" max="100000" onchange="myFunction2(this)">
+										</div>
 									</div>
+								</fieldset>
+								<fieldset class="calculator-result">
+									<div class="calculator-output">
+										<label for="result">ВАША ПРИБЫЛЬ:</label>
+										<output id="result">30 248 Р</output>
+									</div>
+									<button data-modal="form-modal" class="button secondary centered">ОСТАВИТЬ ЗАЯВКУ</button>
 								</fieldset>
 							</form>
 						</div>
 					</div>
 				</div>
-			</div>
-			<div class="contacts">
+			</section>
+			<section class="contacts">
 				<div class="container">
 					<h2 class="contacts-title">
 						Наши контакты
@@ -348,7 +363,7 @@
 						</div>
 					</div>
 				</div>
-			</div>
+			</section>
 		</main>
 		<footer class="footer">
 			<div class="container">
@@ -366,6 +381,85 @@
 			</div>
 		</footer>	
 
+		<div class="modal" id="form-modal">
+        <div class="modal-bg modal-exit"></div>
+        <div class="modal-container">
+            <div id="form-block" class="modal-content">
+                <h3 class="modal-content-title">Оставьте заявку и наш менеджер свяжется с вами</h3>
+                <form id="modal-form" class="modal-form submit-form">
+                    <fieldset class="modal-form-block">
+                        <input type="text" name="name" class="form-input" placeholder="Ваше имя" required>
+                    </fieldset>
+                    <fieldset class="modal-form-block">
+                        <input
+                            pattern="^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s\./0-9]*$"
+                            type="tel"
+                            name="phone"
+                            placeholder="Номер телефона"
+                            required
+                            class="form-input"
+                        >
+                    </fieldset>
+                    <fieldset class="modal-form-block">
+                        <input class="button modal-form-button" type="submit"
+                               value="ОТПРАВИТЬ">
+                    </fieldset>
+                    <fieldset class="modal-form-block">
+                        <span class="privacy">Нажимая на кнопку “Отправить” Вы принимаете условия пользовательского соглашения и даете согласия на обработку ваших персональных данных.</span>
+                    </fieldset>
+                </form>
+            </div>
+            <button class="modal-close modal-exit">
+            	<img src="./assets/close.svg">
+            </button>
+        </div>
+    </div>
+
+    <div class="modal" id="thanks-modal">
+        <div class="modal-bg modal-exit"></div>
+        <div class="modal-container">
+            <div id="thanks-block" class="modal-thanks">
+                <h3 class="modal-content-title">Спасибо! <br/> Ваша заявка отправлена</h3>
+            </div>
+            <button class="modal-close modal-exit">
+            	<img src="./assets/close.svg">
+            </button>
+        </div>
+    </div>
+
+		<div class="scroll cloud cloud-one" data-rate="-0.2" data-direction="vertical">
+			<img src="./assets/cloud.svg" alt="">
+		</div>
+		<div class="scroll cloudlet cloudlet-one" data-rate="0.5" data-direction="vertical">
+			<img src="./assets/cloudlet.svg" alt="">
+		</div>
+		<div class="scroll cloud cloud-two" data-rate="0.7" data-direction="vertical">
+			<img src="./assets/cloud.svg" alt="">
+		</div>
+		<div class="scroll cloudlet cloudlet-two" data-rate="-0.34" data-direction="vertical">
+			<img src="./assets/cloudlet.svg" alt="">
+		</div>
+		<div class="scroll cloud cloud-three" data-rate="-0.24" data-direction="vertical">
+			<img src="./assets/cloud.svg" alt="">
+		</div>
+		<div class="scroll cloud cloud-four" data-rate="0.34" data-direction="vertical">
+			<img src="./assets/cloud.svg" alt="">
+		</div>
+		<div class="scroll cloudlet cloudlet-three" data-rate="0.34" data-direction="vertical"> 
+			<img src="./assets/cloudlet.svg" alt="">
+		</div>
+		<div class="scroll cloud cloud-five" data-rate="0.015" data-direction="vertical">
+			<img src="./assets/cloud.svg" alt="">
+		</div>
+		<div class="scroll cloudlet cloudlet-four" data-rate="-0.015" data-direction="vertical">
+			<img src="./assets/cloudlet.svg" alt="">
+		</div>
+		<div class="scroll cloud cloud-six" data-rate="0.015" data-direction="vertical">
+			<img src="./assets/cloud.svg" alt="">
+		</div>
+
+
+		<script src="./scripts/ts-select2.min.js"></script>
 		<script src="./scripts/index.js"></script>
 
 	</body>

@@ -1,22 +1,50 @@
 @import 'mixins'
 
 .header 
-	padding: 34px 0 31px
+	padding: 34px 0 20px
 	background: rgba(10, 133, 211, 0.1)
+	position: relative
+	@include sm 
+		flex-direction: column
+		padding-top: 15px
+		padding-bottom: 31px
 	.container
 		display: flex
 		align-items: center
 		align-content: center
+		@include sm 
+			flex-direction: column
 	.button 
 		min-width: 285px
 		margin-left: 20px
+		position: relative
+		z-index: 1
+		@include sm
+			margin-left: 0
+		&+.button 
+			@include md 
+				display: none
+
 	.phone
 		font-size: 22px
+		@include sm
+			padding: 21px 29px 24px
+			margin-top: 15px
 .logo
 	margin-right: auto
+	position: relative
+	z-index: 1
+	@include sm 
+		max-width: 100%
+		img
+			width: 100%
+			height: auto
+			max-width: 230px
 
 .hero
 	display: flex
+	position: relative
+	z-index: 1
 	&-text
 		display: flex
 		flex-direction: column
@@ -27,28 +55,49 @@
 			justify-content: center
 			padding-top: 0
 			padding-right: 30px
+		@include md
+			flex: 0 0 100%
+			padding-top: 0
+			padding-right: 0
 	&-title
-		font-weight: 400
+		@include md 
+			br
+				display: none
 	&-description
 		max-width: 400px
 		margin-top: 37px
+		@include sm
+			margin-top: 15px
 	&-image
 		@include xl
 			flex: 0 0 52.5%
 			img
 				width: 100%
 				height: auto
+		@include md
+			display: none
 	.button
 		margin-top: 40px
-		
+		@include sm
+			margin-top: 30px
+
+.top-block
+	background: linear-gradient(180deg, rgba(10,133,211,0.1) 24.38%, rgba(231,246,255,0) 88.33%)
+	overflow: hidden
+	padding-bottom: 20px
+	
 .advantages
 	margin-top: 40px
+	padding-bottom: 49px	
 	display: grid
 	gap: 30px
 	grid-template-columns: repeat(4, 1fr)
+	position: relative
+	z-index: 1
 	@include md
 		grid-template-columns: repeat(2, 1fr)
 	@include sm 
+		gap: 20px
 		grid-template-columns: repeat(1, 1fr)
 	&-item
 		display: flex
