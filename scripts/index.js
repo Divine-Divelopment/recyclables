@@ -1,22 +1,58 @@
-const myFunction = function (input) {
-	console.log('input changed')
-	document.getElementById('weight-range').value = input.value
-	input.value = input.value + 'кг'
+function numberWithSpaces(x) {
+  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
 }
 
-const myFunction2 = function (input) {
-	console.log(input.value)
-	document.getElementById('weight').value = input.value + 'кг'
+const inputListener = function (e) {
+	document.getElementById('weight-range').value = e.value
+	e.value = numberWithSpaces(e.value) + 'кг'
+	calculate()
 }
+
+const rangeListener = function (e) {
+	document.getElementById('weight').value = numberWithSpaces(e.value) + ' кг'
+	calculate()
+}
+
+const smoothScroll = () => {
+	document.getElementById('calculator').scrollIntoView({
+		behavior: 'smooth'
+	});
+}
+
+const calculate = () => {
+	const material = document.getElementById('material')
+	const index = material.selectedIndex;
+	const materialCost = material[index].value;
+	const weight = document.getElementById('weight-range').value;
+	const output = document.getElementById('result').textContent = numberWithSpaces(materialCost / 1000 * weight) + ' Р';
+}
+
+const scrollToCalculator = () => {
+	const buttons = document.querySelectorAll('.types-list-item-button');
+	const select = document.querySelector('#material');
+	for(let i = 0; i < buttons.length; i++) {
+		buttons[i].addEventListener('click', function(e) {
+			const material = e.target.dataset.material;
+			const selectedItem = select.querySelector(`option[data-name="${material}"]`)
+			selectedItem.selected = 'selected'
+
+			const select2 = new TsSelect2(
+				select, {
+					width: `100%`,
+					minimumResultsForSearch: -1,
+				}
+			);
+			calculate()
+			smoothScroll();
+		})
+	}
+};
 
 const parallax = () => {
 	window.addEventListener('scroll', function(e) {
-
-	const target = document.querySelectorAll('.scroll');
-
-
-	var index = 0, length = target.length;
-	for (index; index < length; index++) {
+		const target = document.querySelectorAll('.scroll');
+		var index = 0, length = target.length;
+		for (index; index < length; index++) {
 			var pos = window.pageYOffset * target[index].dataset.rate;
 
 			if (target[index].dataset.direction === 'vertical') {
@@ -29,7 +65,7 @@ const parallax = () => {
 			}
 		}
 	});
-}
+};
 
 const modalsBlock = function () {
   const modals = document.querySelectorAll('[data-modal]');
@@ -57,7 +93,7 @@ const modalsBlock = function () {
       });
     });
   });
-}
+};
 
 const sendForm = function () {
   let forms = document.querySelectorAll(".submit-form");
@@ -116,18 +152,21 @@ const sendForm = function () {
   })
 };
 
-
 window.addEventListener("load", function() {
 	parallax();
 	modalsBlock();
 	sendForm();
+	scrollToCalculator();
 	const select = document.querySelector('#material');
 
 	const select2 = new TsSelect2(
 		select, {
 			width: `100%`,
-			minimumResultsForSearch: -1
+			minimumResultsForSearch: -1,
 		}
 	);
+	select.addEventListener('change', function (e) {
+		calculate()
+	});
 });
 
