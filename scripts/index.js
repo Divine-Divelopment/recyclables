@@ -48,6 +48,18 @@ const scrollToCalculator = () => {
 	}
 };
 
+const onlyScrollToCalculator = () => {
+	const items = document.querySelectorAll('.to-calculator');
+
+	for(let i = 0; i < items.length; i++) {
+		items[i].addEventListener('click', function(e) {
+			console.log(e)
+			calculate()
+			smoothScroll();
+		})
+	}
+}
+
 const parallax = () => {
 	window.addEventListener('scroll', function(e) {
 		const target = document.querySelectorAll('.scroll');
@@ -96,7 +108,7 @@ const modalsBlock = function () {
 };
 
 const sendForm = function () {
-  let forms = document.querySelectorAll(".submit-form");
+  let forms = document.querySelectorAll(".modal-form");
   let fields = document.querySelectorAll(".form-input");
   let sendButton = document.querySelector("input[type='submit']");
 
@@ -127,9 +139,10 @@ const sendForm = function () {
       let xhr = new XMLHttpRequest();
       let data = new FormData(form);
       let method = 'POST';
-      let action = '../telegram.php';
+      let action = './telegram.php';
       const modal = document.getElementById('thanks-modal');
       const modalForm = document.getElementById('form-modal');
+      const body = document.body;
 
       xhr.open(method, action);
 
@@ -142,6 +155,7 @@ const sendForm = function () {
           modal.classList.add('open');
           setTimeout(() => {
             modal.classList.remove('open')
+            body.classList.remove('no-scroll');
           },5000);
         } else {
           console.log("HTTP error", xhr.status, xhr.statusText);
@@ -157,6 +171,7 @@ window.addEventListener("load", function() {
 	modalsBlock();
 	sendForm();
 	scrollToCalculator();
+	onlyScrollToCalculator();
 	const select = document.querySelector('#material');
 
 	const select2 = new TsSelect2(
